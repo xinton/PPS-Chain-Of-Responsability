@@ -2,15 +2,20 @@ package br.edu.ifpb.pps;
 
 public class Produto {
 	private String nome;
-	private float preco;
+	private double preco;
 	
-	public Produto() {
-		// TODO Auto-generated constructor stub
+	public Produto(String nome, double preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
+	
+	public Produto(double preco) {
+		this.preco = preco;
 	}
 	public String getNome() {
 		return nome;
 	}
-	public float getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 	public void setNome(String nome) {

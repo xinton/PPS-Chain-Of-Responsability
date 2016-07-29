@@ -1,43 +1,47 @@
 package br.edu.ifpb.pps;
 
+import java.util.ArrayList;
+
 public class Maquina {
-		
-	public static void main(String[] args) {
-		Slot slots = new Slot1c();
+	private ArrayList<Produto> produtos;
+	private Slot slots;
+	
+	public Maquina(){
+		this.slots = new Slot1c();
+		this.produtos = new ArrayList<Produto>();
+	}
+	
+	public void ligarMaquina(){
+		carregarSlots();
+		carregarProdutos();
+	}
+	
+	public void carregarSlots(){
 		slots.setNextSlot(new Slot5c());
 		slots.setNextSlot(new Slot10c());
 		slots.setNextSlot(new Slot25c());
-		
-		try {
-			System.out.println("Exemplo: moeda de 25c");
-			slots.receberMoeda(Moedas.vintecincoC);
-			System.out.println();
-			
-			System.out.println("Exemplo: moeda de 10c");
-			slots.receberMoeda(Moedas.dezC);
-			System.out.println();
-
-			System.out.println("Exemplo: moeda de 1c");
-			slots.receberMoeda(Moedas.umC);
-			System.out.println();
-
-			System.out.println("Exemplo: moeda de 5c");
-			slots.receberMoeda(Moedas.cincoC);	
-			System.out.println();
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
+		slots.setNextSlot(new Slot50c());
+		slots.setNextSlot(new Slot1r());
 	}
 	
-//	public void construirMaquina(Slot slots){
-//		slots.setNextSlot(new Slot5c());
-//		slots.setNextSlot(new Slot10c());
-//		slots.setNextSlot(new Slot25c());
-//		
-//	}
+	public void carregarProdutos(){
+		produtos.add(new Produto("Coca Cola Lata 250ml", 1.59));
+		produtos.add(new Produto("Pepsi Lata 350ml", 1.99));
+		produtos.add(new Produto("Kuat Lata 350ml", 1.65));
+		produtos.add(new Produto("Amendoim Descascado YOKI Pacote 500g", 8.79));
+		produtos.add(new Produto("Amendoim Colorido Dori Pacote 500g", 4.49));
+		produtos.add(new Produto("Amendoim Mendorato Pacote 500g", 11.90));
+	}
 	
-	
-
+	public String mostrarProdutos(){
+		
+		String result = "";
+		
+		for(int i = 0; i < produtos.size(); i++){
+			result += i + " - " + produtos.indexOf(i) + "\n";
+		}
+		
+		return result;
+		
+	}
 }

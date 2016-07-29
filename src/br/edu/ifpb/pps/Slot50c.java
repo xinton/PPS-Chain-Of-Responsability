@@ -1,9 +1,9 @@
 package br.edu.ifpb.pps;
 
-public class Slot25c extends Slot{	
+public class Slot50c extends Slot{	
 
-	public Slot25c() {
-		super(Moedas.vintecincoC);
+	public Slot50c() {
+		super(Moedas.cinquetaC);
 	}
 
 	@Override
