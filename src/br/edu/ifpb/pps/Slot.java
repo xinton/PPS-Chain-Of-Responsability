@@ -12,11 +12,11 @@ public abstract class Slot {
 		this.moedaAceita = valor;
 	}
 	
-	public void setNextSlot(Slot nextSlot) {
+	public void setNextSlot(Slot slot) {
 		if(nextSlot == null){
-			this.nextSlot = nextSlot;
+			nextSlot = slot;
 		} else {
-			this.nextSlot.setNextSlot(nextSlot);
+			nextSlot.setNextSlot(slot);
 		}
 	}
 	
@@ -28,6 +28,7 @@ public abstract class Slot {
 			if(nextSlot == null) {
 				throw new Exception("Slot inexistente");
 			}
+			System.out.println("Não pode receber a moeda de "+ moedaInserida +", passar pra prox slot de moedas");
 			this.nextSlot.receberMoeda(moedaInserida);
 		}
 	}
