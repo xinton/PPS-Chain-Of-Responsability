@@ -28,7 +28,7 @@ public abstract class Slot {
 			if(nextSlot == null) {
 				throw new Exception("Slot inexistente");
 			}
-			System.out.println("Não pode receber a moeda de "+ moedaInserida +", passar pra prox slot de moedas");
+			System.out.println("Nao pode receber a moeda de "+ moedaInserida +", passar pra prox slot de moedas");
 			this.nextSlot.receberMoeda(moedaInserida);
 		}
 	}
