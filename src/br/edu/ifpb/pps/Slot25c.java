@@ -9,7 +9,6 @@ public class Slot25c extends Slot{
 	@Override
 	public void recebeMoeda() {
 		System.out.println("Slot 25c: Moeda Recebida!");
-
 	}
 
 }
