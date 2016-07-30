@@ -1,5 +1,7 @@
 package br.edu.ifpb.pps;
 
+import br.edu.ifpb.fachada.Sistema;
+
 public class Slot25c extends Slot{	
 
 	public Slot25c() {
@@ -7,8 +9,9 @@ public class Slot25c extends Slot{
 	}
 
 	@Override
-	public void recebeMoeda() {
+	public void recebeMoeda(float valor) {
 		System.out.println("Slot 25c: Moeda Recebida!");
+		Sistema.inserirCredito(valor);
 	}
 
 }
