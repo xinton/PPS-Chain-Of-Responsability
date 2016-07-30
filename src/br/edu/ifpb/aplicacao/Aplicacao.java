@@ -54,7 +54,6 @@ public class Aplicacao {
 	}
 	
 	public void tarefa_inserirCredito(){			
-		float credito;
 		String valor;
 
 		System.out.println("\n---INSERIR CREDITO---");
@@ -109,10 +108,11 @@ public class Aplicacao {
 						if(Sistema.produtoEscolhido(Integer.parseInt(escolha))){
 							
 							System.out.println("\n---Produto comprado com sucesso---");
-							System.out.println("---O seu troco\\crédito: " + df.format(Sistema.getCredito()));
+							System.out.println("---O seu troco\\crédito: " + df.format(Sistema.getCredito()) + "---");
 							
 						}else{
 							System.out.println("\n---Ainda não é possivel comprar esse produto---");
+							System.out.println("  Crédito : R$ " + df.format(Sistema.getCredito())); 
 						}
 
 						System.out.print("\nSelecionar outro produto(ou ENTER para voltar): ");
