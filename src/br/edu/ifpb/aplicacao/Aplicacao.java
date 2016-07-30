@@ -81,12 +81,14 @@ public class Aplicacao {
 	
 	public void tarefa_comprarProduto(){
 		String escolha;
+		String credito;
 		String produtos = Sistema.obterProdutos();
+		
 
 		System.out.println("\n---Nossos Produtos---");
 		System.out.println(produtos);
 		System.out.println("  Crédito : R$ " + df.format(Sistema.getCredito())); 
-		System.out.print("Escolha(ou ENTER para voltar): ");
+		System.out.print("Selecionar produto(ou ENTER para voltar): ");
 		escolha = teclado.nextLine();
 		while (!escolha.equals("")) {
 			try{
@@ -94,7 +96,29 @@ public class Aplicacao {
 					System.out.println("\n---Produto comprado com sucesso---");
 					System.out.println("---O seu troco: " + df.format(Sistema.getCredito()));
 				}else{
-					System.out.println("\n---Não é possivel comprar esse produto---");
+					System.out.println("\n---Não é ainda possivel comprar esse produto---");
+					System.out.println("  Crédito : R$ " + df.format(Sistema.getCredito())); 
+					System.out.print("\nValor(ou ENTER para escolher outro produto): ");
+					
+					credito = teclado.nextLine();
+					
+					while(!credito.equals("")){
+						
+						Sistema.receberMoeda(Float.parseFloat(credito));
+						
+						if(Sistema.produtoEscolhido(Integer.parseInt(escolha))){
+							
+							System.out.println("\n---Produto comprado com sucesso---");
+							System.out.println("---O seu troco\\crédito: " + df.format(Sistema.getCredito()));
+							
+						}else{
+							System.out.println("\n---Ainda não é possivel comprar esse produto---");
+						}
+
+						System.out.print("\nSelecionar outro produto(ou ENTER para voltar): ");
+						credito = teclado.nextLine();
+					}
+					
 				}
 			}
 			catch(NumberFormatException e){
@@ -104,7 +128,7 @@ public class Aplicacao {
 				System.out.println("-->" + e.getMessage());
 			}
 
-			System.out.print("\nValor(ou ENTER para voltar): ");
+			System.out.print("\nSelecionar produto(ou ENTER para voltar): ");
 			escolha = teclado.nextLine();
 		}
 	}
